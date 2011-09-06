@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:weightSum="1">
+    <ImageView android:src="@drawable/badge" android:layout_width="fill_parent" android:id="@+id/imageView1" android:layout_height="wrap_content"></ImageView>
+    <LinearLayout android:layout_width="match_parent" android:id="@+id/linearLayout1" android:layout_height="wrap_content">
+    <ProgressBar android:id="@+id/progressBar" android:layout_width="wrap_content" android:layout_height="wrap_content"></ProgressBar>
+    <TextView android:layout_width="wrap_content" android:text="@string/textviewStatusMessage" android:id="@+id/StatusMessage" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceSmall"></TextView>
+	</LinearLayout>
+    <TextView android:layout_width="wrap_content" android:text="@string/textviewPickerInstruction" android:id="@+id/textView1" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+    <DatePicker android:layout_width="fill_parent" android:id="@+id/datePicker1" android:layout_height="wrap_content" android:layout_weight="0.15" android:visibility="invisible"></DatePicker>
+    <Button android:text="@string/buttonGetReport" android:id="@+id/getreport" android:layout_width="fill_parent" android:layout_height="wrap_content" android:enabled="false"></Button>
+</LinearLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ColumbiaCrimeReport</string>
+    <string name="SourceURL">&quot;http://www.columbiapd.net/pdfs/bulletins/&quot;</string>
+    <string name="textviewPickerInstruction">&quot;Select a date to pull up the crime report&quot;</string>
+    <string name="buttonGetReport">&quot;Get The Report!&quot;</string>
+    <string name="textviewStatusMessage">&quot;Checking Columbia PD's Site....&quot;</string>
+</resources>

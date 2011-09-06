@@ -1,6 +1,5 @@
 package com.udhaa.ColumbiaCrimeReport;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URLConnection;
 import java.text.SimpleDateFormat;
@@ -15,15 +14,12 @@ import org.jsoup.select.Elements;
 
 
 import android.app.Activity;
-import android.app.DatePickerDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.format.DateFormat;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -51,7 +47,7 @@ public class ColumbiaCrimeReportActivity extends Activity implements OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         ProgressBar mainpb = (ProgressBar)findViewById(R.id.progressBar);
-        TextView statusarea = (TextView)findViewById(R.id.StatusMessage);
+        final TextView statusarea = (TextView)findViewById(R.id.textMissingReport);
         DatePicker dp=(DatePicker)findViewById(R.id.datePicker1);
         final Button buttonGetReport = (Button)findViewById(R.id.getreport);
         new ReportLibInterface().execute("@string/SourceURL");
@@ -71,20 +67,23 @@ public class ColumbiaCrimeReportActivity extends Activity implements OnClickList
 				//Log.d(TAG,"Searchdate is: " + searchdate.toString());
 				for (CrimeReport CrimeReport: ReportList){
 					if ((CrimeReport.ReportDate.getMonth() == searchdate.getMonth()) && (CrimeReport.ReportDate.getDate() == searchdate.getDate())){
-						Log.d(TAG,"Found a match!");
+//						Log.d(TAG,"Found a match!");
 						RequestURL = CrimeReport.BaseURL;
 //						Log.d(TAG,"This date is valid for: " + RequestURL);
 						buttonGetReport.setEnabled(true);
+						statusarea.setVisibility(4);
 						break;
 					}else {
 //						Log.d(TAG,"Searchdate: " + searchdate.toString() + "is not matching this record's date: " + CrimeReport.ReportDate.toString()  );
 						buttonGetReport.setEnabled(false);
+						statusarea.setVisibility(0);
 					}
 				}
 			}
         	
         };
-        dp.init(2011, 8, 5, listener);         
+        Calendar d = Calendar.getInstance();        
+        dp.init(d.get(Calendar.YEAR), d.get(Calendar.MONTH), d.get(Calendar.DAY_OF_MONTH), listener);    
     }
 
 	class ReportLibInterface extends AsyncTask<String, Integer, String>{
@@ -97,17 +96,16 @@ public class ColumbiaCrimeReportActivity extends Activity implements OnClickList
 			URLConnection conn;
 			Document doc;
 			try {
-				Log.d(TAG, "Loading Doc");
+//				Log.d(TAG, "Loading Doc");
 				doc = Jsoup.connect(url).timeout(0).get();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				message = "Could not load doc";
 				e.printStackTrace();
 				return message;
 			}
-			Log.d(TAG, "getting content");
+//			Log.d(TAG, "getting content");
 //			Element content = doc.getElementById("content");
-			Log.d(TAG, "parsing a elements");
+//			Log.d(TAG, "parsing a elements");
 //			Elements links = content.getElementsByTag("a");
 			Elements links = doc.select("a[href$=.pdf]");
 			int x = 0;
@@ -129,9 +127,6 @@ public class ColumbiaCrimeReportActivity extends Activity implements OnClickList
 			  
 			  ReportList.add(new CrimeReport( url + link.text(), linkdate));
 			  //String linkText = link.text();
-			  //TODO: Add the linktext as the fully formed link to the pdf to the class instance
-			  //TODO: parse the linktext to get the date
-			  //TODO: add the new date to the class instance
 //			  Log.d(TAG, "Successfully added Crime Report to Report List!");
 			  x=x+1;
 			}
@@ -169,14 +164,14 @@ public class ColumbiaCrimeReportActivity extends Activity implements OnClickList
 		case R.id.getreport:
 			{
 			//get date from date selector
-			Log.d(TAG,"Once this works I'm going to get: " + RequestURL);
+//			Log.d(TAG,"Once this works I'm going to get: " + RequestURL);
 			Intent intent = new Intent(Intent.ACTION_VIEW);
 			intent.setData(Uri.parse(RequestURL));
                 try {
                     startActivity(intent);
                 } 
                 catch (ActivityNotFoundException e) {
-                        Log.d(TAG,"No Application Available to View PDF"); 
+//                        Log.d(TAG,"No Application Available to View PDF"); 
                 }
             }
 			return;

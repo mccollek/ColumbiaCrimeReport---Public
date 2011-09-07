@@ -1,0 +1,18 @@
+ColumbiaCrimeReport is an Android application written in Java
+
+--Current Version--
+* Checks for police reports on the columbiasc.net website
+* User can select the date the report was posted
+* The application initiates a call to the website to pull down the app.
+
+If you would like to contribute, see the wiki for details on potential features we'd like to add.  Screenshots are included.
+
+Credit for the initial creation and subsequent design ideas of this application go to the teams at Udhaa, Inc (www.udhaa.com) and Palmetto Computer Labs (www.palmettocomputerlabs.com):
+
+Karl McCollester
+Todd Lewis
+Matt Hudson
+Jarrell Waggoner
+
+Additional Contributers are:
+

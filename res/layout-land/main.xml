@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/horizontallayout"
+>
+    <ImageView android:src="@drawable/badge" android:layout_width="wrap_content" android:id="@+id/imageView1" android:layout_height="wrap_content"></ImageView>
+    <LinearLayout android:layout_width="match_parent" android:id="@+id/linearLayout1" android:layout_height="wrap_content" android:layout_toRightOf="@+id/imageView1">
+    <ProgressBar android:id="@+id/progressBar" android:layout_width="wrap_content" android:layout_height="wrap_content"></ProgressBar>
+    <TextView android:layout_width="wrap_content" android:text="@string/textviewStatusMessage" android:id="@+id/StatusMessage" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceSmall"></TextView>
+	</LinearLayout>
+    <TextView android:layout_width="wrap_content" android:text="@string/textviewPickerInstruction" android:id="@+id/textView1" android:layout_below="@+id/linearLayout1" android:layout_alignLeft="@+id/linearLayout1" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+    <DatePicker android:layout_width="fill_parent" android:id="@+id/datePicker1" android:layout_height="wrap_content" android:layout_weight="0.15" android:visibility="invisible" android:layout_below="@+id/textView1" android:layout_alignLeft="@+id/textView1" ></DatePicker>
+    <Button android:text="@string/buttonGetReport" android:id="@+id/getreport" android:layout_width="fill_parent" android:layout_height="wrap_content" android:enabled="false" android:layout_below="@+id/datePicker1" android:layout_alignLeft="@+id/datePicker1"></Button>
+    <TextView android:text="No report published on this date" android:textColor="#ff0000" android:id="@+id/textMissingReport" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="invisible" android:layout_below="@+id/imageView1" android:minLines="2" android:layout_toLeftOf="@+id/getreport"></TextView>
+    <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="wrap_content" android:text="(c)2011, Udhaa, Inc. and Palmetto Computer Labs" android:id="@+id/textView2" android:layout_below="@+id/getreport" ></TextView>
+</RelativeLayout>

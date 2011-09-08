@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- //ColumbiaCrimeReport is an Android application written in Java
+//Copyright 2011 Karl McCollester and Palmetto Computer Labs, LLC
+//Licensed under the Gnu GPL
+//
+//    This file is part of the Columbia Crime Report (iCrime) software.
+//
+//    The Columbia Crime Report (iCrime) software is free software: you can redistribute it and/or modify
+//    it under the terms of the GNU General Public License as published by
+//    the Free Software Foundation, either version 3 of the License, or
+//    (at your option) any later version.
+//
+//    The Columbia Crime Report (iCrime) software is distributed in the hope that it will be useful,
+//    but WITHOUT ANY WARRANTY; without even the implied warranty of
+//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//    GNU General Public License for more details.
+//
+//    You should have received a copy of the GNU General Public License
+//    along with Foobar.  If not, see <http://www.gnu.org/licenses/>.  --> 
+
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="fill_parent"
@@ -14,5 +35,5 @@
     <DatePicker android:layout_width="fill_parent" android:id="@+id/datePicker1" android:layout_height="wrap_content" android:layout_weight="0.15" android:visibility="invisible" android:layout_below="@+id/textView1" android:layout_alignLeft="@+id/textView1" ></DatePicker>
     <Button android:text="@string/buttonGetReport" android:id="@+id/getreport" android:layout_width="fill_parent" android:layout_height="wrap_content" android:enabled="false" android:layout_below="@+id/datePicker1" android:layout_alignLeft="@+id/datePicker1"></Button>
     <TextView android:text="No report published on this date" android:textColor="#ff0000" android:id="@+id/textMissingReport" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="invisible" android:layout_below="@+id/imageView1" android:minLines="2" android:layout_toLeftOf="@+id/getreport"></TextView>
-    <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="wrap_content" android:text="(c)2011, Udhaa, Inc. and Palmetto Computer Labs" android:id="@+id/textView2" android:layout_below="@+id/getreport" ></TextView>
+    <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="wrap_content" android:text="@string/Credits" android:id="@+id/textView2" android:layout_below="@+id/getreport" ></TextView>
 </RelativeLayout>
